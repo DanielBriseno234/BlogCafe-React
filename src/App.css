@@ -1,38 +1,277 @@
-.App {
+
+/* Estilos globales */
+.contenedor{
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.centrar-texto{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img{
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.formatoImg{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 400px ;
+}
+
+/* Estilos navegacion */
+.navbar{
+  background:#221504;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav_logo{
+  font-weight: bold;
+  font-size: 20px;
+  margin: 15px;
+  color: white;
+  text-decoration: none;
+}
+.nav_items a{
+  margin: 15px;
+  color: white;
+  position: relative;
+  text-decoration: none;
+}
+.nav_toggle{
+  display: none;
+}
+
+.activo{
+  background-color: #d67d0798;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .nav_items{
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background: #221504;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: -webkit-fill-available;        
+      transform: translateX(-100%);
+      transition: 0.3s ease all;
+  }
+  .nav_items.open{
+      transform: translateX(0) !important
+  }
+  .nav_toggle{
+      display: flex !important;
+      flex-direction: column;                
+      margin: 15px;
+  }
+  .nav_toggle span{
+      width: 30px;
+      height: 4px;
+      background: white;
+      margin-bottom: 5px;
+      border-radius: 2px;             
+      transform-origin: 5px 0px;
+      transition: all 0.2s linear;
+  }
+  .nav_toggle.open > span{
+      transform: rotate(45deg) translate(0px, 0px);
+  }
+  .nav_toggle.open > span:nth-child(2){
+      display: none;
+  }
+  .nav_toggle.open > span:nth-child(3){
+      transform: rotate(-45deg) translate(-5px, 1px);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Estilos Header */
+.header{
+  background-image: url(./img/header.jpg);
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  text-align: center;
+}
+
+.texto-header{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h2{
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Estilos noticias */
+.noticia{
+  display: grid;
+  grid-template-columns: 35% 65%;
+  gap: 10px;
+  text-align: justify;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .noticia{
+    display: block;
+    max-width: 95%;
+    margin: 20px auto;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Estilos Quienes Somos */
+.QuienesSomos{
+  width: 90%;
+    text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .QuienesSomos{
+    display: grid;
+    grid-template-columns: 65% 35%;
+    gap: 20px;
+    margin-top: 20px;
   }
+  
+  .datosEmpresa{
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  
+  .sideBar{
+    grid-column: 2/3;
+  }
+}
+
+.sideBar p span{
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Estilos compras */
+.caja-cards{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  color: white;
+  text-align: center;
+}
+
+.card{
+  background-color: #b66a08d5;
+  padding: 2px 10px 20px;  
+  margin: 10px auto;
+  width: 47%;
+  border-radius: 20px;
+}
+
+.card button{
+  width: 100%
+}
+
+.imagen{
+  background-image: url("./img/compras.jpg");
+  margin-bottom: 20px;
+}
+
+
+/* Estilos Formulario */
+.contacto{
+ background-image: url(./img/contacto.jpg);
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 90vh;
+ color: white;
+}
+
+.formulario form{
+  display: block;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.formulario label{
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.formulario input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.formulario .cajaForm input {
+  background-color: unset;
+  border: 2px solid white;
+  color: white;
+}
+
+.formulario h1{
+  margin: 0;
+  padding: 20px;
+}
+
+.formulario .cajaForm{
+  margin-bottom: 10px;
+}
+
+.formulario #comentario{
+  height: 100px;
+}
+
+.boton{
+  text-transform: uppercase;
+  font-size: 16px;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.boton-cafe {
+  background-color: #221504;
+  color: white;
+}
+
+.boton-cafe:hover{
+  background-color: #221504ef;
+}
+
+.er{
+  color: red;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* estilos footer*/
+
+.footer{
+  width: 100%;
+}
+
+.footer p{
+  color: white;
+}
+
+/* Estilos Error */ 
+.error{
+  background-color: #9b7548;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
+
+.msjError{
+  margin: 0;
 }
